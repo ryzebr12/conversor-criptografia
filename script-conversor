@@ -1,0 +1,21 @@
+import base64
+
+def texto_para_base64(texto):
+    texto_bytes = texto.encode('utf-8')
+    base64_bytes = base64.b64encode(texto_bytes)
+    base64_texto = base64_bytes.decode('utf-8')
+    return base64_texto
+
+def base64_para_texto(base64_texto):
+    base64_bytes = base64_texto.encode('utf-8')
+    texto_bytes = base64.b64decode(base64_bytes)
+    texto = texto_bytes.decode('utf-8')
+    return texto
+
+# Exemplo de uso:
+texto_original = "Olá, mundo!"
+base64_texto = texto_para_base64(texto_original)
+print("Texto original:", texto_original)
+print("Base64:", base64_texto)
+texto_decodificado = base64_para_texto(base64_texto)
+print("Texto decodificado:", texto_decodificado)

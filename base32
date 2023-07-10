@@ -1,0 +1,25 @@
+import base64
+
+def texto_para_base32(texto):
+    texto_bytes = texto.encode('utf-8')
+    base32_bytes = base64.b32encode(texto_bytes)
+    base32_texto = base32_bytes.decode('utf-8')
+    return base32_texto
+
+def base32_para_texto(base32_texto):
+    base32_bytes = base32_texto.encode('utf-8')
+    texto_bytes = base64.b32decode(base32_bytes)
+    texto = texto_bytes.decode('utf-8')
+    return texto
+
+# Solicitar ao usuário o texto ou palavra
+texto_original = input("Digite o texto ou palavra: ")
+
+# Converter para base32
+base32_texto = texto_para_base32(texto_original)
+print("Texto original:", texto_original)
+print("Base32:", base32_texto)
+
+# Decodificar de base32
+texto_decodificado = base32_para_texto(base32_texto)
+print("Texto decodificado:", texto_decodificado)
